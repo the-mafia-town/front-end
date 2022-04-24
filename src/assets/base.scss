@@ -1,0 +1,32 @@
+$primary: #7D5A50;
+$primary-darker: #61463e;
+$accent: #8F6C62;
+$secondary: #FFEBC1; 
+$background: #B4846C; 
+$background-light: #C4947C;
+
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+$western-font: 'Orelega One', cursive;
+
+.menu-button {
+  display: block;
+  background-color: $primary;
+  color: white;
+  font-family: $western-font;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: 300px;
+  text-transform: uppercase;
+  padding: 20px 50px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $accent;
+    color: white;
+  }
+}
