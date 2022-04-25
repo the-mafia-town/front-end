@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LoginPage from '../components/LoginPage.vue'
-import HomePage from '../components/HomePage.vue'
-import LobbyPage from '../components/LobbyPage.vue'
-import GamePage from '../components/GamePage.vue'
+import LoginPage from '../pages/LoginPage.vue'
+import HomePage from '../pages/HomePage.vue'
+import LobbyPage from '../pages/LobbyPage.vue'
+import GamePage from '../pages/GamePage.vue'
+
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,6 +13,9 @@ const router = createRouter({
         { path: '/lobby', name: 'Lobby', component: LobbyPage },
         { path: '/game', name: 'Game', component: GamePage },
     ]
+})
+router.beforeEach((from, to) => {
+
 })
 
 export default router

@@ -15,8 +15,9 @@
 </template>
 
 <script>
-import {VueElement} from "vue";
-import {MessageType} from "./types";
+import { VueElement } from "vue";
+import { MessageType } from "../constants/events";
+
 
 export default {
   name: "GamePage",

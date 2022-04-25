@@ -8,7 +8,7 @@
 
 <script>
 import { VueElement } from "vue";
-import { MessageType } from "./types";
+import { MessageType } from "../constants/events";
 import TheNavbar from "../components/TheNavbar.vue";
 import { mapState } from "pinia";
 import { userStore } from "../store/UserStore";

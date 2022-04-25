@@ -16,14 +16,15 @@
       </div>
       <div class="lobby__chat__container">
         <h1 class="lobby__chat__container-header">Chat</h1>
-        <div class="message">
-          <p v-for="message in chats" 
-          style="color: black; padding: 5px 5px 0 5px;">{{ message.sender }}:
-            {{ message.message }}
-          </p>
-        </div>
-        <div class="message-box">
-          <input id="chat-input-id" 
+        <div class="lobby__chat__container__body">
+          <div class="message">
+            <p v-for="message in chats"> 
+            <span class="message-sender"> {{ message.sender }}: </span>
+             <span class="message-body"> {{ message.message }} </span>
+            </p>
+          </div>
+          <input
+            class="lobby__chat__container__body-input" 
             v-model="chatInput" 
             placeholder="Enter a message..."
             @keyup.enter="sendMessage"
@@ -33,14 +34,15 @@
     </div>
     <button 
       class="menu-button" 
-      @click="startGameHandler">START GAME</button>
-    <p style="color: white;">{{ gameInfo }}</p>
+      @click="startGameHandler">
+      START GAME
+    </button>
   </div>
 </template>
 
 <script>
-import {VueElement} from "vue";
-import {MessageType} from "./types";
+import { VueElement } from "vue";
+import { MessageType } from "../constants/events";
 import TheNavbar from "../components/TheNavbar.vue";
 import { mapState } from "pinia";
 import { userStore } from "../store/UserStore";
@@ -135,11 +137,41 @@ export default {
         color: white;
         border-radius: 0px 30px 0 0;
       }
-
-      .message {
-
-      }
+      &__body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        .message {
+          color: white;
+          padding: 5px;
+          &-sender {
+            font-size: 1rem;
+            font-weight: bold;
+          }
+          &-body {
+            font-size: 1rem;  
+          }
+        }
   
+        &-input {
+          align-self: flex-end;
+          justify-self: flex-end;
+          width: 95.5%;
+          padding: 10px;
+          font-size: 1.2rem;
+          border-radius: 0px 0px 30px 0px;
+          border: none;
+          outline: none;
+          background: $accent;
+          color: white;
+          margin-top: auto;
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.486);
+          }
+        }
+
+      }  
   }
 
   &-players {
@@ -148,7 +180,7 @@ export default {
       width: 50%;
       height: 70vh;
       background-color: $primary;
-      border-radius: 30px;
+      border-radius: 30px 30px 0px 30px;
 
       &-header {
         background-color: $primary-darker;
@@ -183,18 +215,6 @@ export default {
   }
 }
 
-
-.message-box {
-  width: 90%;
-  height: 50px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: black;
-  margin: 0 0 10px 15px;
-  opacity: 0.5;
-  border-radius: 15px;
-}
 
 .message-box-input {
   width: 100%;
